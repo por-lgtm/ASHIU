@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>旧芦生レストラン | 復活、美山の唐揚げ</title>
+  <meta name="description" content="美山の歴史を味わう。名物・芦生さんの唐揚げが復活。テイクアウトのご予約はこちらから。">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Shippori+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand_ink: '#333333',
+            brand_navy: '#0B192C',
+            brand_silk: '#f5f5f0',
+            brand_gold: '#D4AF37',
+            brand_red: '#E63946',
+            brand_orange: '#F77F00',
+          },
+          fontFamily: {
+            mincho: ['"Shippori Mincho"', 'serif'],
+            gothic: ['"Noto Sans JP"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: theme('colors.brand_silk');
+      color: theme('colors.brand_ink');
+      padding-bottom: 80px;
+    }
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .ticker-wrapper {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .ticker-content {
+        display: inline-block;
+        padding-left: 100%;
+        animation: ticker 25s linear infinite;
+    }
+    @keyframes ticker {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+    @supports (padding-bottom: env(safe-area-inset-bottom)) {
+      .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+      }
+    }
+  </style>
+</head>
+<body class="font-gothic">
+
+  <!-- 2. 店舗ステータス (Ticker) -->
+  <div class="bg-brand_ink text-brand_gold py-2 text-sm font-bold tracking-widest ticker-wrapper z-50 relative border-b border-brand_gold/30">
+    <div class="ticker-content">
+      【本日営業中】11:00〜16:00 / 今月の定休日: 毎週水曜日・第2・第4木曜
+    </div>
+  </div>
+
+  <!-- 1. ヒーローセクション -->
+  <header class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="images/hero.png" alt="美山の風景" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-brand_navy/50 mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-brand_ink via-transparent to-transparent"></div>
+    </div>
+    
+    <div class="relative z-10 text-center px-4 flex flex-col items-center">
+      <p class="font-mincho text-brand_gold text-lg md:text-2xl mb-4 tracking-widest text-shadow">美山の歴史を味わう。</p>
+      <h1 class="font-mincho text-brand_silk text-5xl md:text-7xl font-bold leading-tight mb-10 text-shadow">名物・芦生さんの<br>唐揚げ</h1>
+      <a href="#takeout" class="bg-brand_red hover:bg-red-700 text-brand_silk font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+        テイクアウトを予約する
+      </a>
+    </div>
+  </header>
+
+  <!-- 3. 復活のストーリー -->
+  <section class="py-16 px-4 md:px-8 max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="font-mincho text-3xl text-brand_navy font-bold mb-2">復活の想い</h2>
+      <div class="w-12 h-1 bg-brand_gold mx-auto"></div>
+    </div>
+    
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <div class="w-full md:w-1/2">
+        <img src="images/hero.png" alt="旧芦生レストランの風景" class="rounded-lg shadow-xl aspect-[4/3] object-cover grayscale hover:grayscale-0 transition duration-500">
+      </div>
+      <div class="w-full md:w-1/2 space-y-4 font-mincho leading-relaxed text-brand_ink/80 text-lg">
+        <p>かつて美山の中心で、地元の人々や旅人に愛された「旧芦生レストラン」。</p>
+        <p>その中でも、特別な配合の衣とジューシーな肉汁が溢れる「芦生さんの唐揚げ」は、多くの人々の記憶に刻まれる名物でした。</p>
+        <p>長い時を経て、当時のレシピと美山の恵みをそのままに現代に復活させました。一口かじれば、昔懐かしい風景が広がります。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. お品書き (メニュー) -->
+  <section id="menu" class="py-16 px-4 md:px-8 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-mincho text-3xl text-brand_navy font-bold mb-2">お品書き</h2>
+        <div class="w-12 h-1 bg-brand_gold mx-auto"></div>
+      </div>
+
+      <div class="space-y-6">
+        <!-- 名物 唐揚げ -->
+        <div class="flex flex-col md:flex-row bg-brand_silk rounded-xl shadow-lg border-2 border-brand_gold overflow-hidden">
+          <div class="w-full md:w-2/5">
+             <img src="images/karaage.png" alt="芦生さんの唐揚げ" class="w-full h-full object-cover">
+          </div>
+          <div class="w-full md:w-3/5 p-6 flex flex-col justify-center">
+             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+               <h3 class="font-gothic text-2xl font-bold text-brand_navy mb-2 md:mb-0">芦生さんの唐揚げ</h3>
+               <span class="font-gothic text-2xl font-bold text-brand_red">¥880</span>
+             </div>
+             <p class="text-brand_ink/70 mb-6">外はカリッと、中はジュワッと。秘伝のタレに丸一日漬け込んだ、当店一番人気の看板メニューです。五個入り。</p>
+             <button onclick="document.getElementById('takeout').scrollIntoView();" class="mt-auto self-start bg-brand_navy text-brand_silk px-8 py-3 rounded-full font-bold hover:bg-blue-900 transition">注文する</button>
+          </div>
+        </div>
+
+        <!-- その他のメニュー -->
+        <div class="flex flex-col md:flex-row bg-white rounded-xl shadow border border-gray-200 overflow-hidden">
+          <div class="w-full md:w-1/4 bg-gray-100 flex items-center justify-center p-8">
+             <span class="text-gray-400 font-mincho">No Image</span>
+          </div>
+          <div class="w-full md:w-3/4 p-6 flex flex-col justify-center">
+             <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+               <h3 class="font-gothic text-xl font-bold text-brand_navy">美山のおばんざい弁当</h3>
+               <span class="font-gothic text-lg font-bold">¥1,200</span>
+             </div>
+             <p class="text-brand_ink/70 text-sm">地元で採れた旬の野菜をふんだんに使った日替わりのお弁当。唐揚げ2個付き。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. テイクアウト事前注文UI -->
+  <section id="takeout" class="py-16 px-4 md:px-8 max-w-2xl mx-auto">
+    <div class="bg-brand_navy text-brand_silk rounded-2xl shadow-2xl p-8 relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand_gold rounded-full opacity-10 blur-xl"></div>
+      
+      <div class="text-center mb-10 relative z-10">
+        <h2 class="font-mincho text-3xl font-bold mb-2">テイクアウト事前予約</h2>
+        <p class="text-sm opacity-80">お待たせせずに、揚げたてをお渡しします。</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('予約手続きに進みます（モックアップ）');" class="space-y-6 relative z-10">
+        <div>
+          <label class="block text-sm font-bold mb-2 text-brand_gold">商品と数量</label>
+          <div class="flex items-center gap-4 bg-white/10 p-4 rounded-lg">
+             <span class="font-bold flex-1 text-sm md:text-base">芦生さんの唐揚げ (¥880)</span>
+             <select class="bg-brand_silk text-brand_ink rounded p-2 font-bold w-20 md:w-24">
+               <option>1個</option>
+               <option>2個</option>
+               <option>3個</option>
+               <option>4個</option>
+             </select>
+          </div>
+        </div>
+        
+        <!-- UI Simplified -->
+        <button type="submit" class="w-full bg-brand_orange hover:bg-orange-600 text-white font-bold py-4 rounded-lg shadow-lg transition duration-300 transform md:hover:-translate-y-1 text-lg">
+          この内容で予約へ進む
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- カレンダーとアクセスは同じレイアウトブロックで構築 -->
+  <section class="py-16 px-4 md:px-8 bg-brand_silk border-t border-gray-300">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-8">
+      
+      <!-- 6. 営業カレンダー -->
+      <div class="w-full md:w-1/3">
+        <h2 class="font-mincho text-2xl text-brand_navy font-bold mb-6">営業日（4月）</h2>
+        <div class="bg-white p-4 rounded-lg shadow">
+          <div class="grid grid-cols-7 gap-1 text-center text-sm font-bold mb-2">
+            <div class="text-brand_red">日</div><div>月</div><div>火</div><div>水</div><div>木</div><div>金</div><div class="text-blue-500">土</div>
+          </div>
+          <!-- 簡易モックカレンダー -->
+          <div class="grid grid-cols-7 gap-1 text-center text-sm">
+             <div class="p-2 opacity-30">30</div>
+             <div class="p-2 opacity-30">31</div>
+             <div class="p-2">1</div>
+             <div class="p-2 bg-red-100 text-red-600 rounded-full">2</div>
+             <div class="p-2">3</div>
+             <div class="p-2">4</div>
+             <div class="p-2">5</div>
+             <!-- Next week -->
+             <div class="p-2 text-brand_red">6</div>
+             <div class="p-2">7</div>
+             <div class="p-2">8</div>
+             <div class="p-2 bg-red-100 text-red-600 rounded-full">9</div>
+             <div class="p-2">10</div>
+             <div class="p-2">11</div>
+             <div class="p-2 text-blue-500">12</div>
+          </div>
+          <p class="text-xs text-brand_ink/60 mt-4 text-right">※赤枠は定休日です</p>
+        </div>
+      </div>
+
+      <!-- 7. アクセスと設備情報 -->
+      <div class="w-full md:w-2/3">
+        <h2 class="font-mincho text-2xl text-brand_navy font-bold mb-6">アクセス＆設備</h2>
+        <div class="bg-gray-300 w-full rounded-lg shadow-inner overflow-hidden aspect-video md:aspect-[2/1] relative">
+           <!-- Placeholder Maps -->
+           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13028.988!2d135.5393!3d35.3123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zTWl5YW1h!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp" class="absolute inset-0 w-full h-full border-0" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="mt-4 flex gap-4">
+           <div class="w-1/2 bg-white p-4 rounded-lg shadow text-center">
+             <p class="text-xs text-brand_ink/60">駐車場</p>
+             <p class="font-bold text-brand_navy text-sm mt-1">店舗前 5台完備</p>
+           </div>
+           <div class="w-1/2 bg-white p-4 rounded-lg shadow text-center">
+             <p class="text-xs text-brand_ink/60">サイクルラック</p>
+             <p class="font-bold text-brand_navy text-sm mt-1">ロードバイク用 有</p>
+           </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. フッター -->
+  <footer class="bg-brand_ink text-brand_silk py-12 px-4 md:px-8">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+      
+      <div class="text-center md:text-left">
+        <h2 class="font-mincho text-2xl font-bold mb-2">旧芦生レストラン</h2>
+        <p class="text-brand_silk/70 text-sm mb-1">〒601-0700 京都府南丹市美山町</p>
+        <p class="text-brand_silk/70 text-sm">TEL: 0771-00-0000</p>
+      </div>
+
+      <div class="flex flex-col items-center md:items-end gap-6">
+        <!-- 言語切り替え -->
+        <div class="relative inline-block text-left">
+          <button id="lang-btn" class="inline-flex justify-center w-full rounded-md border border-brand_silk/30 px-4 py-2 bg-brand_ink text-sm font-medium text-brand_silk hover:bg-gray-800 focus:outline-none">
+            🌐 日本語 (Japanese)
+          </button>
+          <div id="lang-menu" class="hidden origin-bottom-right md:origin-top-right absolute right-0 bottom-full md:bottom-auto mb-2 md:mb-0 md:mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50">
+            <div class="py-1">
+              <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">English</a>
+              <a href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100">中文 (繁體)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-4 text-brand_gold">
+          <a href="#" class="hover:text-white transition">Instagram</a>
+          <a href="#" class="hover:text-white transition">X (Twitter)</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center text-xs mt-8 opacity-50 font-gothic">
+      &copy; 2026 旧芦生レストラン All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- モバイルファースト: 固定ボトムナビゲーション -->
+  <div class="fixed bottom-0 left-0 w-full bg-brand_navy/95 backdrop-blur shadow-[0_-4px_10px_rgba(0,0,0,0.2)] z-40">
+    <div class="flex justify-around items-center h-[70px] max-w-lg mx-auto pb-safe">
+      <a href="https://maps.google.com" target="_blank" class="flex flex-col items-center justify-center w-1/2 h-full text-brand_silk hover:text-brand_gold transition border-r border-brand_silk/20">
+        <span class="text-lg mb-1">📍</span>
+        <span class="text-[11px] font-bold">ルート案内</span>
+      </a>
+      <button onclick="document.getElementById('takeout').scrollIntoView();" class="flex flex-col items-center justify-center w-1/2 h-full text-brand_gold bg-brand_ink/50 hover:bg-brand_ink transition">
+        <span class="text-lg mb-1">🥡</span>
+        <span class="text-[11px] font-bold">テイクアウト注文</span>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ドロップダウンメニューのトグル処理
+    const langBtn = document.getElementById('lang-btn');
+    const langMenu = document.getElementById('lang-menu');
+    
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      langMenu.classList.toggle('hidden');
+    });
+
+    // メニュー外クリックで閉じる処理
+    document.addEventListener('click', (e) => {
+      if (!langMenu.classList.contains('hidden') && !e.target.closest('.relative')) {
+        langMenu.classList.add('hidden');
+      }
+    });
+  </script>
+
+</body>
+</html>
